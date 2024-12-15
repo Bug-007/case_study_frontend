@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem; /* Add rounded corners */
+    overflow: hidden; /* Prevent image overflow */
+  }
+  
+  .product-image {
+    flex: 1 0 auto; /* Make image take up most space */
+  }
+  
+  .product-info {
+    flex: 0 0 auto; /* Allow info to shrink if needed */
+  }
+
+  .logout-button {
+    background-color: #e74c3c; /* Red color */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+  }
+
+  .category-dropdown {
+    background-color: #f0f0f0; /* Example background color */
+    padding: 0.5rem; 
+  }
