@@ -6,6 +6,7 @@ import ProductEdit from '../components/ProductEdit';
 import ProductDelete from '../components/ProductDelete';
 import { BASE_URL, PRODUCT } from '../constants/API_ENDPOINTS';
 import API from '../ApiHooks/axiosConfig';
+import { useSelector } from 'react-redux';
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -33,7 +34,12 @@ const Dashboard = () => {
     }
   };
 
+  const { user } = useSelector((state) => state.auth);
+
   useLayoutEffect(() => {
+    if (user?.email !== "test@test.com") {
+      navigate('/');
+    }
     fetchProducts();
   }, []);
 
