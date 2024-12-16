@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ProductAdd from '../components/ProductAdd';
@@ -37,11 +37,15 @@ const Dashboard = () => {
   const { user } = useSelector((state) => state.auth);
 
   useLayoutEffect(() => {
-    if (user?.email !== "test@test.com") {
-      navigate('/');
-    }
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    if (user?.email !== "test@test.com") {
+      navigate('/products');
+    }
+  }, []);
+  
 
   const handleAddProduct = async (newProduct) => {
 
