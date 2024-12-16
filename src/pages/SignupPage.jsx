@@ -42,7 +42,7 @@ const SignupPage = () => {
           `${BASE_URL + AUTH.POST_SIGNUP}`,
           values
         );
-        navigate("/login");
+        navigate("/");
       } catch (err) {
         setSignUpError(err?.response?.data?.error);
       }

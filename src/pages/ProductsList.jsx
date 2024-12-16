@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // For navigation
 import { BASE_URL, PRODUCT, AUTH } from "../constants/API_ENDPOINTS";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../slice/authSlice";
 import API from "../ApiHooks/axiosConfig";
 
@@ -60,6 +60,9 @@ const ProductListPage = () => {
     ? products.filter((product) => product.productCategory === selectedCategory)
     : products;
 
+    const { user } = useSelector((state) => state.auth);
+
+
   return (
     <div className="container mx-auto p-4">
       <div className="flex justify-between items-center mb-4">
@@ -79,12 +82,13 @@ const ProductListPage = () => {
           </select>
         </div>
         <div className="flex items-center">
+        { user?.email === 'test@test.com' &&
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2"
             onClick={handleNavigateToDashboard}
           >
             Dashboard
-          </button>
+          </button>}
           <button
             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2"
             onClick={handleLogout}

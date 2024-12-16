@@ -1,6 +1,6 @@
 
 
-const BASE_URL = "https://case-study-backend-1.onrender.com/";
+const BASE_URL = "http://localhost:5173/";
 
 const PRODUCT = {
     GET_PRODUCTS : 'api/product/getproducts',
